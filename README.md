@@ -38,10 +38,12 @@ For developers using AngularJS, Angular Material is both a UI Component framewor
 ---
 Create a folder where you want to init your project and do:
 ```sh
-    $ git clone https://github.com/renancaldas/angular-material-init.git
+    $ git clone https://github.com/renancaldas/angular-material-init.git && rm -rf angular-material-init/.git
 ```
 
-It will create a folder called **angular-material-init**. Rename it to your project name and start coding using this backbone.
+It will create a folder called **angular-material-init**. Rename it and start coding using this backbone.
+
+**Obs.:** the **rm -rf** command will clear the git reference to this repository, so you can use it for your projects.
 
 &nbsp;
 
