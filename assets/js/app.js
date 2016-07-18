@@ -10,8 +10,12 @@ var app = angular.module('AngularApp', [
     'ngRoute'
 ]);
 
-app.config(function($mdThemingProvider, $routeProvider) {
+app.config(function($mdThemingProvider, $routeProvider, $sceDelegateProvider) {
 
+    $sceDelegateProvider.resourceUrlWhitelist([
+      'self', // Allow same origin resource loads.
+      'https://rawcdn.githack.com/**' // Allow loading from our assets domain.  Notice the difference between * and **.
+    ]);
 
 	  // Theming
     // https://material.angularjs.org/latest/Theming/01_introduction
@@ -31,5 +35,8 @@ app.config(function($mdThemingProvider, $routeProvider) {
         })
       	
         .otherwise({redirectTo : '/'});
+
+
+    
 });
 
