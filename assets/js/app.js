@@ -26,7 +26,7 @@ app.config(function($mdThemingProvider, $routeProvider) {
 
         // Welcome
         .when('/', {
-          templateUrl: 'https://raw.githubusercontent.com/renancaldas/angular-material-init/master/assets/views/welcome.html',
+          templateUrl: 'https://rawcdn.githack.com/renancaldas/angular-material-init/master/assets/views/welcome.html',
           controller: 'WelcomeCtrl'
         })
       	
