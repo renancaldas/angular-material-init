@@ -1,0 +1,127 @@
+ <!--================================================================================
+
+ Useful Links:
+
+	- Angular material
+	https://material.angularjs.org/latest/
+
+	- Icon list
+	http://google.github.io/material-design-icons/#getting-icons
+
+	- Themes (this is set in app.js file)
+	http://www.google.com/design/spec/style/color.html#color-color-palette
+
+================================================================================-->
+
+<!DOCTYPE html>
+<html ng-app="AngularApp">
+<head>
+	<title>Angular App</title>
+
+
+	<!-- CSS files
+	=================================================-->
+
+	<!-- Material Design -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc.5/angular-material.min.css">
+
+	<!-- Animate.css --> 
+	<link href="https://cdn.rawgit.com/daneden/animate.css/master/animate.min.css" rel="stylesheet">
+
+	<!-- Local css --> 
+	<link href="https://cdn.rawgit.com/renancaldas/angular-material-init/gh-pages/assets/css/style.css" rel="stylesheet">
+
+
+</head>
+<body ng-controller="GlobalCtrl" layout-fill>
+
+	<!-- Header -->
+    	<md-toolbar layout="row" ng-hide="hideHeader">
+		<div class="md-toolbar-tools" >
+
+			<!-- Back button (to show/hide, set "showBackButton", in "globalCtrl") -->
+			<i ng-show="header.showBackButton" class="material-icons clickable back-btn" ng-click="goBack()" ng-show="header.showBackButton">arrow_back</i>
+			<i ng-show="header.showMenuButton" class="material-icons clickable back-btn" ng-click="toggleSideNav()" ng-show="header.showMenuButton">menu</i>
+
+			<label flex>{{ header.title }}</label>
+		 </div>
+	</md-toolbar>
+
+	<!-- SideNav -->
+	<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="leftMenu" md-is-locked-open="$mdMedia('')">
+	      <div ng-controller="GlobalCtrl" style="width: 100%; height: 100%" layout="column" layout-align="space-between start">
+	          <div style="width: 100%; height: 100%">
+	              <md-toolbar class="header">
+	                <h1 class="md-toolbar-tools">Menu</h1>
+	              </md-toolbar>
+	            
+	              <!-- Fund -->
+	              <md-button class="menu-item" layout="row" layout-align="start" ng-click="clickme()">
+	                  <div flex="10"></div>
+	                  <div flex class="menu-icons" layout="row" layout-align="start center">
+	                      <div class="icon" ><i class="material-icons">label_outline</i></div>
+	                      <div class="description">Menu 1</div>
+	                  </div>
+	                  <div flex></div>
+	              </md-button>
+
+	              
+
+	              <!-- Admin -->
+	              <md-button class="menu-item" layout="row" layout-align="center center" ng-click="clickme()" >
+	                  <div flex="10"></div>
+	                  <div flex class="menu-icons" layout="row" layout-align="start center">
+	                      <div class="icon" ><i class="material-icons">info_outline</i></div>
+	                      <div class="description">Menu 2</div>
+	                  </div>
+	                  <div flex></div>
+	              </md-button>
+
+	              <!-- Pipeline -->
+	              <md-button class="menu-item" layout="row" layout-align="center center" ng-click="clickme()">
+	                  <div flex="10"></div>
+	                  <div flex class="menu-icons" layout="row" layout-align="start center">
+	                      <div class="icon" ><i class="material-icons">search</i></div>
+	                      <div class="description">Menu 3</div>
+	                  </div>
+	                  <div flex></div>
+	              </md-button>
+	          </div>
+
+
+	          <!-- Logout -->
+	          <md-button class="menu-item" layout="row" layout-align="center center" ng-click="clickme()" >
+	              <div flex="10"></div>
+	              <div flex class="menu-icons" layout="row" layout-align="start center">
+	                  <div class="icon" ><i class="material-icons">keyboard_tab</i></div>
+	                  <div class="description">Logout</div>
+	              </div>
+	              <div flex></div>
+	          </md-button>
+
+	      </div>
+	</md-sidenav>
+
+	<!-- Angular Views -->
+	<div ng-view id="view-container"></div>
+
+
+	<!-- Javascript files
+	=================================================-->
+
+	<!-- Angular Material Dependencies -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc.5/angular-material.min.js"></script>
+
+	<!-- Angular items -->
+	<script src="https://cdn.rawgit.com/renancaldas/angular-material-init/gh-pages/assets/js/app.js"></script>
+	<script src="https://cdn.rawgit.com/renancaldas/angular-material-init/gh-pages/assets/js/ctrls/globalCtrl.js"></script>
+	<script src="https://cdn.rawgit.com/renancaldas/angular-material-init/gh-pages/assets/js/ctrls/welcomeCtrl.js"></script>
+	<script src="https://cdn.rawgit.com/renancaldas/angular-material-init/gh-pages/assets/js/services/globalSrv.js"></script>
+
+</body>
+</html>

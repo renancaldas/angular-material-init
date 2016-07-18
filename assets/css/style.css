@@ -1,0 +1,57 @@
+.clickable {
+	cursor: pointer;
+}
+
+.back-btn {
+	width: 50px;
+}
+
+#view-container {
+	height: 90%;
+}
+
+#leftMenu .item {
+    width: 100%;
+    height: 50px;
+}
+
+#leftMenu .item .icon {
+    margin-right: 10px;
+}
+
+#leftMenu .item .description {
+	margin-bottom: 3px;
+}
+
+/* Menu / Sidenav left
+-----------------------------------------*/
+md-sidenav  .menu-item {
+    cursor: pointer;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    height: 50px;
+}
+
+md-sidenav  .menu-item .icon {
+    padding-top: 14px;
+}
+
+md-sidenav  .menu-item .description {
+    margin-left: 10%;
+}
+
+md-sidenav, 
+md-sidenav.md-locked-open, 
+md-sidenav.md-closed.md-locked-open-add-active {
+    min-width: 100px !important;
+    max-width: 256px !important;
+    height: 100%;
+} 
+
+md-sidenav #logo {
+    height: 150px;
+}
+
+md-sidenav .md-select-icon {
+    /*padding-left: 50%;*/
+}
