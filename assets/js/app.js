@@ -30,7 +30,7 @@ app.config(function($mdThemingProvider, $routeProvider, $sceDelegateProvider) {
 
         // Welcome
         .when('/', {
-          templateUrl: 'https://rawcdn.githack.com/renancaldas/angular-material-init/gh-pages/assets/views/welcome.html',
+          templateUrl: 'assets/views/welcome.html',
           controller: 'WelcomeCtrl'
         })
       	
