@@ -1,0 +1,17 @@
+<div id="crudView" layout="row" layout-align="center center"  style="height: 100%; width: 100%">
+  <table-crud model="tableCrud"></table-crud>
+</div>
+
+<!-- Content -->
+<script type="text/ng-template" id="crudTestTemplate.html" >
+  <div layout="column" layout-align="space-between center">
+    <md-input-container style="width: 80%">
+      <label>Name</label>
+      <input ng-model="modalData.model.name">
+    </md-input-container>
+    <md-input-container  style="width: 80%">
+      <label>Email</label>
+      <input ng-model="modalData.model.email">
+    </md-input-container>
+  </div>
+</script>

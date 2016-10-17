@@ -31,6 +31,7 @@
 
 	<!-- Local css --> 
 	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/tableCrud.css" rel="stylesheet">
 
 
 </head>
@@ -56,34 +57,24 @@
 	                <h1 class="md-toolbar-tools">Menu</h1>
 	              </md-toolbar>
 	            
-	              <!-- Fund -->
-	              <md-button class="menu-item" layout="row" layout-align="start" ng-click="clickme()">
+	              <!-- Welcome -->
+	              <md-button class="menu-item" layout="row" layout-align="start" ng-click="goToView('/')">
 	                  <div flex="10"></div>
 	                  <div flex class="menu-icons" layout="row" layout-align="start center">
 	                      <div class="icon" ><i class="material-icons">label_outline</i></div>
-	                      <div class="description">Menu 1</div>
+	                      <div class="description">Welcome</div>
 	                  </div>
 	                  <div flex></div>
 	              </md-button>
 
 	              
 
-	              <!-- Admin -->
-	              <md-button class="menu-item" layout="row" layout-align="center center" ng-click="clickme()" >
+	              <!-- Crud -->
+	              <md-button class="menu-item" layout="row" layout-align="center center" ng-click="goToView('/crud')" >
 	                  <div flex="10"></div>
 	                  <div flex class="menu-icons" layout="row" layout-align="start center">
 	                      <div class="icon" ><i class="material-icons">info_outline</i></div>
-	                      <div class="description">Menu 2</div>
-	                  </div>
-	                  <div flex></div>
-	              </md-button>
-
-	              <!-- Pipeline -->
-	              <md-button class="menu-item" layout="row" layout-align="center center" ng-click="clickme()">
-	                  <div flex="10"></div>
-	                  <div flex class="menu-icons" layout="row" layout-align="start center">
-	                      <div class="icon" ><i class="material-icons">search</i></div>
-	                      <div class="description">Menu 3</div>
+	                      <div class="description">CRUD</div>
 	                  </div>
 	                  <div flex></div>
 	              </md-button>
@@ -121,7 +112,18 @@
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/ctrls/globalCtrl.js"></script>
 	<script src="assets/js/ctrls/welcomeCtrl.js"></script>
+	<script src="assets/js/ctrls/crudCtrl.js"></script>
+	<script src="assets/js/ctrls/partials/tableCrudCtrl.js"></script>
 	<script src="assets/js/services/globalSrv.js"></script>
+	<script src="assets/js/services/backendSrv.js"></script>
+	<script src="assets/js/services/modalSrv.js"></script>
+
+	<!-- Datatables -->
+	<link rel="stylesheet" href="https://cdn.rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.min.css">
+	<script src="https://cdn.rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.min.js"></script>
+
+	<!-- Lodash -->
+	<script src="https://cdn.rawgit.com/rockabox/ng-lodash/master/build/ng-lodash.min.js"></script>
 
 </body>
 </html>

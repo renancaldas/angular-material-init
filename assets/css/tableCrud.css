@@ -1,0 +1,35 @@
+/* Datatables
+-----------------------------------------*/
+table-crud { width:95%;  height:90%; }
+
+table-crud md-card { height:100%; }
+
+table-crud md-toolbar.md-table-toolbar { 
+    background-color: rgba(245,245,245,0.5) !important;
+    box-shadow: 0px 1px 5px -1px rgba(0,0,0,0.2) !important; 
+}
+
+table-crud md-table-container tbody tr {
+    background-color: rgba(255,255,255,1);
+    transition: background-color .4s cubic-bezier(.25,.8,.25,1);
+}
+table-crud md-table-container tbody tr:hover {
+    background-color: rgba(245,245,245,0.8);
+}
+
+table-crud .search {
+	margin-top: 25px;
+     border-radius: 7px;
+     height: 43px;
+}
+
+table-crud .search .md-icon {
+	margin-left: 10px;
+}
+
+table-crud .seach .input {
+	color: grey !important;
+	border-bottom: 1px solid lightgrey !important;
+	margin-left: 15px;
+	font-size: 12pt;
+}

@@ -1,0 +1,89 @@
+<md-card ng-controller="TableCrudCtrl">
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools" layout="row" layout-align="center center">
+        <!--<h2 class="md-title">{{title}}</h2>-->
+         <md-input-container class="search" flex="30">
+              <md-icon class="material-icons">search</md-icon>
+              <input aria-label="search" ng-model="inputFilter">
+         </md-input-container>
+        <div flex>{{tableCrud.test}}</div>
+        <md-button class="md-icon-button launch" ng-click="add($event)" >
+          <md-icon class="material-icons">add</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <!-- exact table from live demo -->
+    <md-table-container flex>
+      <table md-table multiple>
+        <thead md-head md-order="query.order" >
+         <tr md-row>
+           <th md-column ng-repeat="field in tableCrud.fields">{{field.name}}</th>
+           <th md-column md-numeric></th>
+         </tr>
+        </thead>
+        <tbody md-body>
+         <tr md-row ng-show="!tableCrud.loading && tableCrud.list" class="md-ink-ripple" ng-repeat="item in tableCrud.list | filter:inputFilter">
+           <td md-cell ng-repeat="field in tableCrud.fields">{{item[field.model]}}</td>
+           <td md-cell>
+              <md-button class="md-icon-button" ng-click="update($event, item)">
+                <i class="material-icons">edit</i>
+              </md-button>
+              <md-button class="md-icon-button" ng-click="delete($event, item)">
+                <i class="material-icons">delete</i>
+              </md-button>
+           </td>
+         </tr>
+        </tbody>
+      </table>
+      <!-- No data found -->
+      <div flex class="text-center" layout="column" layout-align="center center" ng-show="(!tableCrud.loading && !tableCrud.list) || (!tableCrud.loading && tableCrud.list && tableCrud.list.length === 0)">
+        <i class="material-icons" style="font-size: 40pt;">info_outline</i> <br/>
+        <div>{{ tableCrud.notFound ? tableCrud.notFound : 'No data found!' }}</div>
+      </div>
+      <!-- Loading -->
+      <div flex class="text-center" layout="column" layout-align="center center" ng-show="tableCrud.loading">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+    </md-table-container>
+  </md-card>
+
+<!-- Dialog  -->
+<script type="text/ng-template" id="tableCrudDialog.html">
+    <md-dialog aria-label="Add" style="width: 50%;">
+    <form name="itemForm">
+      
+      <!-- Header -->
+      <md-toolbar style="color: white;">
+        <div class="md-toolbar-tools">
+          <h2>{{title}}</h2>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="cancel()" ng-disabled="loading">
+            <md-icon aria-label="Close dialog">
+              <i class="material-icons">close</i>
+            </md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+
+      <!-- Content -->
+      <md-dialog-content >
+          <br/>
+          <ng-include src="modalData.dialogTemplate"></ng-include>
+      </md-dialog-content>
+
+      <!-- Buttons  -->
+      <md-dialog-content layout="row">
+        
+        <span flex></span>
+        <md-button ng-click="cancel()" ng-disabled="loading">
+          Cancel
+        </md-button>
+        <md-button class="md-raised" ng-click="confirm()" ng-disabled="loading || itemForm.$invalid" >
+          <span ng-show="!loading">Confirm</span>
+          <md-progress-circular md-diameter="20px" style=" right: 10px; bottom: 10px;" ng-show="loading" md-mode="indeterminate"></md-progress-circular>
+        </md-button>
+      </md-dialog-actions>
+    </form>
+  </md-dialog>
+</script>

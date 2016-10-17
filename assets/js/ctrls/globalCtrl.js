@@ -1,7 +1,7 @@
 'use strict';
 var ctrlModule = angular.module('ctrl.global', []);
 
-ctrlModule.controller('GlobalCtrl', function($rootScope, $scope, $mdSidenav, globalSrv) {
+ctrlModule.controller('GlobalCtrl', function($rootScope, $scope, $mdSidenav, $location, globalSrv) {
 
   /* Main functions
   ----------------------*/
@@ -20,12 +20,9 @@ ctrlModule.controller('GlobalCtrl', function($rootScope, $scope, $mdSidenav, glo
 
   function events() {
 
+      $scope.goToView = function (url) { $location.path(url); $mdSidenav('leftMenu').close(); }
       $scope.toggleSideNav = function() { $mdSidenav('leftMenu').toggle(); };
-
-      $scope.clickme = function () {
-          alert('Yay! I fired an event at globalCtrl!');
-      }
-
+      $scope.clickme = function () { alert('Yay! I fired an event at globalCtrl!'); }
   }
   
   init();

@@ -3,11 +3,21 @@ var app = angular.module('AngularApp', [
     // Controllers & services 
     'ctrl.global',
     'ctrl.welcome',
+    'ctrl.crud',
+    'ctrl.tableCrud', 
+
+    // Services
     'srv.global', 
+    'srv.backend', 
+    'srv.modal', 
 
     // Angular 
     'ngMaterial', 
-    'ngRoute'
+    'ngRoute',
+
+    // Custom
+    'md.data.table',
+    'ngLodash'
 ]);
 
 app.config(function($mdThemingProvider, $routeProvider) {
@@ -28,6 +38,10 @@ app.config(function($mdThemingProvider, $routeProvider) {
           templateUrl: 'assets/views/welcome.html',
           controller: 'WelcomeCtrl'
         })
+        .when('/crud', {
+          templateUrl: 'assets/views/crud.html',
+          controller: 'CrudCtrl'
+        })
       	
         .otherwise({redirectTo : '/'});
 
@@ -35,3 +49,14 @@ app.config(function($mdThemingProvider, $routeProvider) {
     
 });
 
+app.directive('tableCrud', function() {
+  return { 
+    restrict: 'E',
+    scope: {
+      tableCrud: '=model'
+    },
+    templateUrl: function(elem, attr) {
+      return 'assets/views/partials/tableCrud.html';
+    }
+  };
+});

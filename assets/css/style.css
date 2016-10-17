@@ -13,6 +13,21 @@
     height: 90%;
 }
 
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+a:active,
+a:hover,
+button:active,
+button:hover,
+button:focus,
+md-button:active,
+md-button:hover,
+md-button:focus,
+.material-icons
+.clickable {
+  outline: none; }
 
 /* Header
 -----------------------------------------*/
