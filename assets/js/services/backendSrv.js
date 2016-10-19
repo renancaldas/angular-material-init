@@ -9,6 +9,7 @@ var users = [
 	{_id: 4, name: 'User4', email:'email@email4.com'},
 	{_id: 5, name: 'User5', email:'email@email5.com'}
 ];
+var crudTimeout = 1000;
 
 service.factory('backendSrv', function($q, $http, $timeout, lodash) {
     'use strict';
@@ -26,7 +27,7 @@ service.factory('backendSrv', function($q, $http, $timeout, lodash) {
 			else {
 				$timeout(function(){
 					deferred.resolve(users);
-				}, 2000)
+				}, crudTimeout)
 			}
 
                return deferred.promise;
@@ -44,7 +45,7 @@ service.factory('backendSrv', function($q, $http, $timeout, lodash) {
 	               	data._id = users.length+1;
 	                	users.push(data);
 					deferred.resolve();
-				}, 2000)
+				}, crudTimeout)
 			}
 
               return deferred.promise;
@@ -62,7 +63,7 @@ service.factory('backendSrv', function($q, $http, $timeout, lodash) {
 	              		var index = _.findIndex(users, {'_id': id});
 	                	users[index] = data;
 					deferred.resolve();
-				}, 2000)
+				}, crudTimeout)
 			}
 
               	return deferred.promise;
@@ -81,7 +82,7 @@ service.factory('backendSrv', function($q, $http, $timeout, lodash) {
 	              		var index = _.findIndex(users, {'_id': id});
 	                	users.splice(index, 1);
 					deferred.resolve();
-				}, 2000)
+				}, crudTimeout)
 			}
 
               return deferred.promise;
