@@ -20,7 +20,13 @@ var app = angular.module('AngularApp', [
     'ngLodash'
 ]);
 
-app.config(function($mdThemingProvider, $routeProvider) {
+app.config(function($mdThemingProvider, $routeProvider, $sceDelegateProvider) {
+
+    // Whitelist rawcdn.githack.com
+    $sceDelegateProvider.resourceUrlWhitelist([
+      'self', // Allow same origin resource loads.
+      'https://rawcdn.githack.com/**' // Allow loading from our assets domain.  Notice the difference between * and **.
+    ]);
 
 	  // Theming
     // https://material.angularjs.org/latest/Theming/01_introduction
