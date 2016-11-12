@@ -4,12 +4,10 @@ var app = angular.module('AngularApp', [
     'ctrl.global',
     'ctrl.welcome',
     'ctrl.crud',
-    'ctrl.tableCrud', 
 
     // Services
     'srv.global', 
-    'srv.backend', 
-    'srv.modal', 
+    'srv.backend',
 
     // Angular 
     'ngMaterial', 
@@ -17,7 +15,8 @@ var app = angular.module('AngularApp', [
 
     // Custom
     'md.data.table',
-    'ngLodash'
+    'ngLodash',
+    'tableCrud'
 ]);
 
 app.config(function($mdThemingProvider, $routeProvider) {
@@ -47,16 +46,4 @@ app.config(function($mdThemingProvider, $routeProvider) {
 
 
     
-});
-
-app.directive('tableCrud', function() {
-  return { 
-    restrict: 'E',
-    scope: {
-      tableCrud: '=model'
-    },
-    templateUrl: function(elem, attr) {
-      return 'assets/views/partials/tableCrud.html';
-    }
-  };
 });
